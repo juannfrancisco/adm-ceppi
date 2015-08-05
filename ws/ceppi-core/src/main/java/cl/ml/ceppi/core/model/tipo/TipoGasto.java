@@ -24,8 +24,13 @@ public class TipoGasto implements Serializable{
 	@GeneratedValue(generator = "SEC_TIPO_GASTO")
 	@Column(name = "ID_TIPO_GASTO", nullable = false)
 	private int oid;
+	
+	@Column
+	private String codigo;
+	
 	@Column
 	private String nombre;
+	
 	@Column
 	private String descripcion;
 
@@ -35,6 +40,27 @@ public class TipoGasto implements Serializable{
 	public TipoGasto() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+
+	public TipoGasto(String codigo, String nombre, String descripcion) {
+		super();
+		this.codigo = codigo;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+	}
+
+
+
+	public TipoGasto(int oid, String codigo, String nombre, String descripcion) {
+		super();
+		this.oid = oid;
+		this.codigo = codigo;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+	}
+
+
 
 	public int getOid() {
 		return oid;
@@ -58,6 +84,14 @@ public class TipoGasto implements Serializable{
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
 	}
 
 }

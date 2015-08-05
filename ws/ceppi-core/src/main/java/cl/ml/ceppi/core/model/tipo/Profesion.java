@@ -23,8 +23,13 @@ public class Profesion implements Serializable {
 	@GeneratedValue(generator = "SEC_PROFESION")
 	@Column(name = "ID_PROFESION", nullable = false)
 	private int oid;
+	
+	@Column
+	private String codigo;
+	
 	@Column
 	private String nombre;
+	
 	@Column
 	private String descripcion;
 
@@ -33,6 +38,21 @@ public class Profesion implements Serializable {
 	 */
 	public Profesion() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public Profesion(String codigo, String nombre, String descripcion) {
+		super();
+		this.codigo = codigo;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+	}
+	
+	public Profesion(int oid, String codigo, String nombre, String descripcion) {
+		super();
+		this.oid = oid;
+		this.codigo = codigo;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
 	}
 
 	public int getOid() {
@@ -57,6 +77,14 @@ public class Profesion implements Serializable {
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
 	}
 
 }
