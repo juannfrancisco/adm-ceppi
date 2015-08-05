@@ -21,12 +21,18 @@ import javax.persistence.Table;
 @Table(name = "CENTRO_COSTO")
 public class CentroCosto implements Serializable {
 	private static final long serialVersionUID = -139712273252199785L;
+
 	@Id
 	@GeneratedValue(generator = "SEC_CENTRO_COSTO")
 	@Column(name = "ID_CENTRO_COSTO", nullable = false)
 	private int oid;
+	
+	@Column
+	private String codigo;
+	
 	@Column
 	private String nombre;
+	
 	@Column
 	private String descripcion;
 
@@ -35,6 +41,22 @@ public class CentroCosto implements Serializable {
 	 */
 	public CentroCosto() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public CentroCosto(String codigo, String nombre, String descripcion) {
+		super();
+		this.codigo = codigo;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+	}
+	
+
+	public CentroCosto(int oid, String codigo, String nombre, String descripcion) {
+		super();
+		this.oid = oid;
+		this.codigo = codigo;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
 	}
 
 	public int getOid() {
@@ -59,6 +81,14 @@ public class CentroCosto implements Serializable {
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
 	}
 
 }

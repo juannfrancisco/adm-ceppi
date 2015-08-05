@@ -21,12 +21,18 @@ import javax.persistence.Table;
 @Table(name = "CATEGORIA_SOCIO")
 public class CategoriaSocio implements Serializable {
 	private static final long serialVersionUID = -7254379492221123102L;
+
 	@Id
 	@GeneratedValue(generator = "SEC_CATEGORIA_SOCIO")
 	@Column(name = "ID_CATEGORIA_SOCIO", nullable = false)
 	private int oid;
+	
+	@Column
+	private String codigo;
+	
 	@Column
 	private String nombre;
+	
 	@Column
 	private String descripcion;
 
@@ -35,6 +41,22 @@ public class CategoriaSocio implements Serializable {
 	 */
 	public CategoriaSocio() {
 		// TODO Auto-generated constructor stub
+	}
+	
+	public CategoriaSocio(String codigo, String nombre, String descripcion) {
+		super();
+		this.codigo = codigo;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+	}
+	
+
+	public CategoriaSocio(int oid, String codigo, String nombre, String descripcion) {
+		super();
+		this.oid = oid;
+		this.codigo = codigo;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
 	}
 
 	public int getOid() {
@@ -59,6 +81,14 @@ public class CategoriaSocio implements Serializable {
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
 	}
 
 }
